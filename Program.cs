@@ -2,11 +2,19 @@
 using System.Security.Cryptography;
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Running;
+using BenchmarkDotNet.Exporters;
+using BenchmarkDotNet.Configs;
 
 namespace MyBenchmarks
 {
+    [Config(typeof(Config))]
     public class Md5VsSha256
     {
+        public class Config : ManualConfig
+		{
+			public Config() => AddExporter(RPlotExporter.Default);
+		}
+
         private const int N = 10000;
         private readonly byte[] data;
 

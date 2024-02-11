@@ -1,3 +1,4 @@
 obj/
 bin/
 BenchmarkDotNet.Artifacts/
+.DS_Store
