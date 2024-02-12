@@ -5,7 +5,7 @@ using BenchmarkDotNet.Running;
 using BenchmarkDotNet.Exporters;
 using BenchmarkDotNet.Configs;
 
-namespace MyBenchmarks
+namespace Benchmarks
 {
     [Config(typeof(Config))]
     public class Md5VsSha256
