@@ -1,4 +1,4 @@
-# List vs Stack / Queue 
+# Struct vs Class
 
 The benchmark aims to compare the performance of struct vs classes. Structs of size < 16B are allocated on the stack vs classes that are always allocated on heap. It is expected that structs will have better performance. 
 
