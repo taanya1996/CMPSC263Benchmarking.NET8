@@ -35,7 +35,7 @@ namespace Benchmarks
             var result = 0;
             for (int i = 0; i < sample_array.Length; i++)
             {
-                if (EqualityComparer<int>.Default.Equals(sample_array[i], i))
+                if (EqualityComparer<T>.Default.Equals(sample_array[i], i))
                     result++;
             }
             return result;
