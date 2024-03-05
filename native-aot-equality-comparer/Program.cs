@@ -28,15 +28,13 @@ namespace Benchmarks
         private readonly int[] sample_array = Enumerable.Range(0, 1000).ToArray();
 
         [Benchmark]
-        public int CompareEqualityComparerPerf() => FindValue();
+        public int CompareEqualityComparerPerf() => FindValue(sample_array, 999);
 
         [MethodImpl(MethodImplOptions.NoInlining)]
-        public int FindValue() {
+        public int FindValue(T[] _array, T val) {
             var result = 0;
-            T[] _array = sample_array as T[];
             for (int i = 0; i < _array.Length; i++)
             {
-                T val = i;
                 if (EqualityComparer<T>.Default.Equals(_array[i], val))
                     result++;
             }
