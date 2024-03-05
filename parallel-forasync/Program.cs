@@ -25,9 +25,9 @@ namespace Benchmarks
 		}
 
         [Benchmark(Baseline = true)]
-        public Task ForEachAsyncTest() => Parallel.ForEachAsync(Enumerable.Range(0, 1_000_000), async (i, count) => ValueTask.CompletedTask);
+        public Task ForEachAsyncTest() => Parallel.ForEachAsync(Enumerable.Range(0, 1_000_000), (i, count) => ValueTask.CompletedTask);
 
         [Benchmark]
-        public Task ForAsyncTest() => Parallel.ForAsync(0, 1_000_000, async (i, count) => ValueTask.CompletedTask);
+        public Task ForAsyncTest() => Parallel.ForAsync(0, 1_000_000, (i, count) => ValueTask.CompletedTask);
     }
 }
