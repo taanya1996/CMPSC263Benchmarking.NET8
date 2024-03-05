@@ -11,13 +11,11 @@ using BenchmarkDotNet.Exporters;
 using BenchmarkDotNet.Configs;
 
 BenchmarkRunner.Run<Benchmarks.Benchmark>();
+BenchmarkSwitcher.FromAssembly(typeof(Benchmarks.Benchmark).Assembly).Run(args);
 
 namespace Benchmarks
 {
-    [MemoryDiagnoser]
     // Alternatively, run : dotnet run -c Release -f net7.0 --filter "*" --runtimes nativeaot7.0 nativeaot8.0
-    [SimpleJob(NativeAotRuntime.Net70)]
-    [SimpleJob(NativeAotRuntime.Net80)]
     [Config(typeof(Config))]
     public class Benchmark
     {
@@ -33,11 +31,10 @@ namespace Benchmarks
 
         [MethodImpl(MethodImplOptions.NoInlining)]
         public int FindValue() {
-            var comparer = EqualityComparer<int>.Default;
             var result = 0;
             for (int i = 0; i < sample_array.Length; i++)
             {
-                if (comparer.Equals(sample_array[i], i))
+                if (EqualityComparer<int>.Default.Equals(sample_array[i], i))
                     result++;
             }
             return result;
