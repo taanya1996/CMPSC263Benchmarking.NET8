@@ -54,8 +54,4 @@ namespace Benchmarks
 
     [Benchmark]
     public async Task<List<int>> EmptyList() => new List<int>();
-
-    [Benchmark]
-    public async Task<Dictionary<int, int>> EmptyDictionary() => new Dictionary<int, int>();
-    }
 }
