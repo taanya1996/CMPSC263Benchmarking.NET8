@@ -28,10 +28,10 @@ namespace Benchmarks
         private readonly int[] _array = Enumerable.Range(0, 1000).ToArray();
 
         [Benchmark]
-        public int FindIndex() => FindIndex(_array, 999);
+        public int GetArrayIndex() => GetArrayIndex(_array, 999);
 
         [MethodImpl(MethodImplOptions.NoInlining)]
-        private static int FindIndex<T>(T[] array, T value)
+        private static int GetArrayIndex<T>(T[] array, T value)
         {
             for (int i = 0; i < array.Length; i++)
                 if (EqualityComparer<T>.Default.Equals(array[i], value))
