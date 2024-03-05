@@ -36,7 +36,8 @@ namespace Benchmarks
             T[] _array = sample_array as T[];
             for (int i = 0; i < _array.Length; i++)
             {
-                if (EqualityComparer<T>.Default.Equals(_array[i], i))
+                T val = i;
+                if (EqualityComparer<T>.Default.Equals(_array[i], val))
                     result++;
             }
             return result;
