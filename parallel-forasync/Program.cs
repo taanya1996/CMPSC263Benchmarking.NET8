@@ -25,9 +25,9 @@ namespace Benchmarks
 		}
 
         [Benchmark(Baseline = true)]
-        public Task ForEachAsyncTest() => Parallel.ForEachAsync(Enumerable.Range(0, 100), async (i, count) => await Task.Delay(1));
+        public Task ForEachAsyncTest() => Parallel.ForEachAsync(Enumerable.Range(0, 1_000_000), async (i, count) => await Task.Delay(1));
 
         [Benchmark]
-        public Task ForAsyncTest() => Parallel.ForAsync(0, 100, async (i, count) => await Task.Delay(1));
+        public Task ForAsyncTest() => Parallel.ForAsync(0, 1_000_000, async (i, count) => await Task.Delay(1));
     }
 }
