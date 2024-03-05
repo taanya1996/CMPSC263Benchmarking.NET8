@@ -33,9 +33,10 @@ namespace Benchmarks
         [MethodImpl(MethodImplOptions.NoInlining)]
         public int FindValue() {
             var result = 0;
-            for (int i = 0; i < sample_array.Length; i++)
+            T[] _array = sample_array as T[];
+            for (int i = 0; i < _array.Length; i++)
             {
-                if (EqualityComparer<T>.Default.Equals(sample_array[i], i))
+                if (EqualityComparer<T>.Default.Equals(_array[i], i))
                     result++;
             }
             return result;
