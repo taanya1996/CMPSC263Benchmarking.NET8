@@ -4,6 +4,7 @@ using System.Collections.Specialized;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Runtime;
+using System.Runtime.CompilerServices;
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Jobs;
 using BenchmarkDotNet.Running;
