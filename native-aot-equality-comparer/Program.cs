@@ -25,20 +25,19 @@ namespace Benchmarks
 			public Config() => AddExporter(RPlotExporter.Default);
 		}
 
-        private readonly int[] sample_array = Enumerable.Range(0, 1000).ToArray();
+        private readonly int[] _array = Enumerable.Range(0, 1000).ToArray();
 
         [Benchmark]
-        public int CompareEqualityComparerPerf() => FindValue(sample_array, 999);
+        public int FindIndex() => FindIndex(_array, 999);
 
         [MethodImpl(MethodImplOptions.NoInlining)]
-        public int FindValue(T[] _array, T val) {
-            var result = 0;
-            for (int i = 0; i < _array.Length; i++)
-            {
-                if (EqualityComparer<T>.Default.Equals(_array[i], val))
-                    result++;
-            }
-            return result;
+        private static int FindIndex<T>(T[] array, T value)
+        {
+            for (int i = 0; i < array.Length; i++)
+                if (EqualityComparer<T>.Default.Equals(array[i], value))
+                    return i;
+
+            return -1;
         }
     }
 }
