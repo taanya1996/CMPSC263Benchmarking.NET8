@@ -18,7 +18,6 @@ namespace Benchmarks
     public record class MediumClass( UInt64 A,  UInt64 B, string X, string Y);
 
     [MemoryDiagnoser]
-    [SimpleJob(RuntimeMoniker.Net70)]
     [SimpleJob(RuntimeMoniker.Net80)]
     [Config(typeof(Config))]
     public class Benchmark

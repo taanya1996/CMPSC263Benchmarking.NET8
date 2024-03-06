@@ -11,7 +11,6 @@ BenchmarkRunner.Run<Benchmarks.Benchmark>();
 namespace Benchmarks
 {
     [MemoryDiagnoser]
-    [SimpleJob(RuntimeMoniker.Net70)]
     [SimpleJob(RuntimeMoniker.Net80)]
     [Config(typeof(Config))]
     public class Benchmark
