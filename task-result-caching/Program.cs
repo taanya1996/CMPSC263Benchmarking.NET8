@@ -54,4 +54,6 @@ namespace Benchmarks
 
     [Benchmark]
     public async Task<List<int>> EmptyList() => new List<int>();
+
+    }
 }
