@@ -42,15 +42,15 @@ namespace Benchmarks
         }
 
         [Benchmark]
-        public IEnumerator<int> StackCreate()
-        {
-            return _stack.GetEnumerator();
-        }
-
-        [Benchmark]
         public IEnumerator<int> QueueCreate()
         {
             return _queue.GetEnumerator();
+        }
+
+        [Benchmark]
+        public IEnumerator<int> StackCreate()
+        {
+            return _stack.GetEnumerator();
         }
 
         [Benchmark]
