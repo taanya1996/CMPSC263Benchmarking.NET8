@@ -13,24 +13,25 @@ using System.Data;
 
 BenchmarkRunner.Run<Benchmarks.Benchmark>();
 
+public class Person
+{
+    int Age;
+    string Name;
+}
+
 namespace Benchmarks
 {
     [MemoryDiagnoser]
     [SimpleJob(RuntimeMoniker.Net80)]
     [SimpleJob(RuntimeMoniker.Net70)]
-    //[Config(typeof(Config))]
+    [Config(typeof(Config))]
 
-    class Person
-    {
-        int Age;
-        string Name;
-    }
     public class Benchmark
     {
-        /*public class Config : ManualConfig
+        public class Config : ManualConfig
 		{
 			public Config() => AddExporter(RPlotExporter.Default);
-		}*/
+		}
         /* works fine
         [Benchmark]
         public void NullCheck() {
