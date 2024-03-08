@@ -25,7 +25,7 @@ namespace Benchmarks
 		{
 			public Config() => AddExporter(RPlotExporter.Default);
 		}
-
+        /* works fine
         [Benchmark]
         public void NullCheck() {
             DataTable dt = null;
@@ -40,9 +40,9 @@ namespace Benchmarks
             DataTable dt = null;
             var testDt = new DataTable();
             testDt = dt ?? testDt;
-        }
+        }*/
 
-        [Benchmark]
+        /*[Benchmark]
         public void ArrayCreationWithCreateInstance() {
             var arr = Array.CreateInstance(typeof(int), 1000);
         }
@@ -59,8 +59,9 @@ namespace Benchmarks
             string longStr = new string('a', 1000);
             longStr += '#';
             return longStr.IndexOfAny(new []{'b','#'});
-        }
+        }*/
 
+        /*works fine
         [Benchmark]
         public void DecodeASCII()
         {
@@ -92,9 +93,9 @@ namespace Benchmarks
                 bytes[i] = (byte)('a' + (i % 26));
             }
             string s = System.Text.Encoding.Default.GetString(bytes);
-        }
+        }*/
 
-        [Benchmark]
+        /*[Benchmark]
         public void EncodeASCII()
         {
             string s = new string('a', 1000);
@@ -113,8 +114,33 @@ namespace Benchmarks
         {
             string s = new string('a', 1000);
             byte[] bytes = System.Text.Encoding.Default.GetBytes(s);
+        }*/
+
+        [Benchmark]
+        public void CreateSystemObjectInstance()
+        {
+            for (int i = 0; i < 1000; i++)
+            {
+                object obj = new object();
+            }
         }
 
+        [Benchmark]
+        public void CreatePersonObject()
+        {
+            for (int i = 0; i < 1000; i++)
+            {
+                Person p = new Person();
+            }
+        }
 
+        [Benchmark]
+        public void CreatePersonObjectWithNew()
+        {
+            for (int i = 0; i < 1000; i++)
+            {
+                Person p = new();
+            }
+        }
     }
 }
