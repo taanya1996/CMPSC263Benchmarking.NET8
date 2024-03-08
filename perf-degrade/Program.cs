@@ -18,7 +18,7 @@ namespace Benchmarks
     [MemoryDiagnoser]
     [SimpleJob(RuntimeMoniker.Net80)]
     [SimpleJob(RuntimeMoniker.Net70)]
-    [Config(typeof(Config))]
+    //[Config(typeof(Config))]
 
     class Person
     {
@@ -27,10 +27,10 @@ namespace Benchmarks
     }
     public class Benchmark
     {
-        public class Config : ManualConfig
+        /*public class Config : ManualConfig
 		{
 			public Config() => AddExporter(RPlotExporter.Default);
-		}
+		}*/
         /* works fine
         [Benchmark]
         public void NullCheck() {
