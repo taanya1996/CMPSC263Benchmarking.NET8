@@ -124,29 +124,31 @@ namespace Benchmarks
         }*/
 
         [Benchmark]
-        public void CreateSystemObjectInstance()
+        public void DisposeObjectUsingTryFinally()
         {
             for (int i = 0; i < 1000; i++)
             {
-                object obj = new object();
+                var obj = new object();
+                try
+                {
+                    // do something
+                }
+                finally
+                {
+                    (obj as IDisposable)?.Dispose();
+                }
             }
         }
 
         [Benchmark]
-        public void CreatePersonObject()
+        public void DisposeObjectUsingUsing()
         {
             for (int i = 0; i < 1000; i++)
             {
-                Person p = new Person();
-            }
-        }
-
-        [Benchmark]
-        public void CreatePersonObjectWithNew()
-        {
-            for (int i = 0; i < 1000; i++)
-            {
-                Person p = new();
+                using (var obj = new object())
+                {
+                    // do something
+                }
             }
         }
     }
