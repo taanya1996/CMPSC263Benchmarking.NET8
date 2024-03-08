@@ -140,16 +140,5 @@ namespace Benchmarks
             }
         }
 
-        [Benchmark]
-        public void DisposeObjectUsingUsing()
-        {
-            for (int i = 0; i < 1000; i++)
-            {
-                using (var obj = new object())
-                {
-                    // do something
-                }
-            }
-        }
     }
 }
