@@ -19,6 +19,12 @@ namespace Benchmarks
     [SimpleJob(RuntimeMoniker.Net80)]
     [SimpleJob(RuntimeMoniker.Net70)]
     [Config(typeof(Config))]
+
+    class Person
+    {
+        int Age;
+        string Name;
+    }
     public class Benchmark
     {
         public class Config : ManualConfig
