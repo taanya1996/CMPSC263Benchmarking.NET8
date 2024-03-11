@@ -32,7 +32,7 @@ namespace Benchmarks{
             if(ind < 5){
                 myArr [ind] = 4;
             }
-
+        }
     }
 
 }
