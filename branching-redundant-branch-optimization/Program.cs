@@ -25,26 +25,13 @@ namespace Benchmarks{
 
         [Benchmark]
         public void BranchPrediction(){
-            int val;
-            int rand_int = s_rand.Next(0, 101);
-            if(rand_int<=100){
-                if(rand_int<=100){
-                    val = 1;
-                }
-                else{
-                    val = 0;
-                }
+            int[] myArr ;
+            myArr = new int[] {1,2,3,4,5};
+
+            int ind = s_rand.Next(1, 10)
+            if(ind < 5){
+                myArr [ind] = 4;
             }
-            else{
-                if(rand_int<=100){
-                    val = 1;
-                }
-                else{
-                    val = 0;
-                }
-            }
-            return;
-        }
 
     }
 
